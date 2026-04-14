@@ -1,0 +1,72 @@
+import { Navigate, Route, Routes, useNavigate } from "react-router-dom";
+import { AppShell } from "./components/AppShell";
+import { AuthLayout } from "./components/AuthLayout";
+import { DevNotice } from "./components/DevNotice";
+import { LoginForm } from "./components/LoginForm";
+import { RegisterForm } from "./components/RegisterForm";
+
+function LoginPage() {
+  const navigate = useNavigate();
+
+  return (
+    <AuthLayout
+      eyebrow="Acceso"
+      title="Inicia sesión en TechMarket"
+      description="Ingresa con tu correo y contraseña para acceder al panel de operaciones, catálogo y métricas."
+    >
+      <LoginForm
+        onSubmit={() => navigate("/app/home")}
+        onGoToRegister={() => navigate("/register")}
+      />
+    </AuthLayout>
+  );
+}
+
+function RegisterPage() {
+  const navigate = useNavigate();
+
+  return (
+    <AuthLayout
+      eyebrow="Registro"
+      title="Crea tu cuenta"
+      description="Configura tu acceso para empezar a administrar inventario, ventas y clientes desde un solo lugar."
+      reversed
+    >
+      <RegisterForm
+        onSubmit={() => navigate("/app/home")}
+        onGoToLogin={() => navigate("/login")}
+      />
+    </AuthLayout>
+  );
+}
+
+function AppHomePage() {
+  return <DevNotice title="Inventario" description="Esta pantalla base está lista; el contenido funcional se implementará después." />;
+}
+
+function DevRoutePage({ title }: { title: string }) {
+  return <DevNotice title={title} />;
+}
+
+export default function App() {
+  return (
+    <Routes>
+      <Route path="/" element={<Navigate to="/login" replace />} />
+      <Route path="/login" element={<LoginPage />} />
+      <Route path="/register" element={<RegisterPage />} />
+      <Route path="/app" element={<AppShell />}>
+        <Route path="home" element={<AppHomePage />} />
+        <Route path="tickets" element={<DevRoutePage title="Tickets" />} />
+        <Route path="catalogo" element={<DevRoutePage title="Catálogo" />} />
+        <Route path="sucursales" element={<DevRoutePage title="Sucursales" />} />
+        <Route path="resenas" element={<DevRoutePage title="Reseñas" />} />
+        <Route path="campanas" element={<DevRoutePage title="Campañas" />} />
+        <Route path="rendimiento" element={<DevRoutePage title="Rendimiento" />} />
+        <Route path="facturacion" element={<DevRoutePage title="Facturación" />} />
+        <Route path="configuracion" element={<DevRoutePage title="Configuración" />} />
+        <Route path="" element={<Navigate to="home" replace />} />
+      </Route>
+      <Route path="*" element={<Navigate to="/login" replace />} />
+    </Routes>
+  );
+}
