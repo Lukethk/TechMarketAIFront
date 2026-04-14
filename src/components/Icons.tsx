@@ -174,3 +174,49 @@ export function ChipIcon() {
     </svg>
   );
 }
+
+export function MessageIcon() {
+  return (
+    <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="1.8">
+      <path d="M5 5.5h14v10H9l-4 3v-3H5z" />
+      <path d="M8 9h8" />
+      <path d="M8 12h4.5" />
+    </svg>
+  );
+}
+
+export function CalendarIcon() {
+  return (
+    <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="1.8">
+      <path d="M6 4.5v2M18 4.5v2" />
+      <path d="M5 8h14v11H5z" />
+      <path d="M5 10.5h14" />
+    </svg>
+  );
+}
+
+export function BookmarkIcon() {
+  return (
+    <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="1.8">
+      <path d="M7 4.5h10v15l-5-3-5 3z" />
+    </svg>
+  );
+}
+
+export function ProfileIcon() {
+  return (
+    <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="1.8">
+      <circle cx="12" cy="8.5" r="3.2" />
+      <path d="M6 19a6 6 0 0 1 12 0" />
+    </svg>
+  );
+}
+
+export function CompassIcon() {
+  return (
+    <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="1.8">
+      <circle cx="12" cy="12" r="7.5" />
+      <path d="M14.5 9.5 10 10l-.5 4.5 4.5-.5.5-4.5z" />
+    </svg>
+  );
+}

@@ -1,9 +1,12 @@
 import { Navigate, Route, Routes, useNavigate } from "react-router-dom";
 import { AppShell } from "./components/AppShell";
+import { CommunityHome } from "./components/CommunityHome";
+import { CommunityShell } from "./components/CommunityShell";
 import { AuthLayout } from "./components/AuthLayout";
 import { DevNotice } from "./components/DevNotice";
 import { LoginForm } from "./components/LoginForm";
 import { RegisterForm } from "./components/RegisterForm";
+import type { UserRole } from "./types";
 
 function LoginPage() {
   const navigate = useNavigate();
@@ -15,7 +18,9 @@ function LoginPage() {
       description="Ingresa con tu correo y contraseña para acceder al panel de operaciones, catálogo y métricas."
     >
       <LoginForm
-        onSubmit={() => navigate("/app/home")}
+        onSubmit={(role: UserRole) => {
+          navigate(role === "empresa" ? "/app/home" : "/community/home");
+        }}
         onGoToRegister={() => navigate("/register")}
       />
     </AuthLayout>
@@ -41,7 +46,12 @@ function RegisterPage() {
 }
 
 function AppHomePage() {
-  return <DevNotice title="Inventario" description="Esta pantalla base está lista; el contenido funcional se implementará después." />;
+  return (
+    <DevNotice
+      title="Inventario"
+      description="Esta pantalla base está lista; el contenido funcional se implementará después."
+    />
+  );
 }
 
 function DevRoutePage({ title }: { title: string }) {
@@ -63,6 +73,16 @@ export default function App() {
         <Route path="campanas" element={<DevRoutePage title="Campañas" />} />
         <Route path="rendimiento" element={<DevRoutePage title="Rendimiento" />} />
         <Route path="facturacion" element={<DevRoutePage title="Facturación" />} />
+        <Route path="configuracion" element={<DevRoutePage title="Configuración" />} />
+        <Route path="" element={<Navigate to="home" replace />} />
+      </Route>
+      <Route path="/community" element={<CommunityShell />}>
+        <Route path="home" element={<CommunityHome />} />
+        <Route path="explorar" element={<DevRoutePage title="Explorar" />} />
+        <Route path="publicaciones" element={<DevRoutePage title="Mis publicaciones" />} />
+        <Route path="mensajes" element={<DevRoutePage title="Mensajes" />} />
+        <Route path="eventos" element={<DevRoutePage title="Eventos" />} />
+        <Route path="perfil" element={<DevRoutePage title="Perfil" />} />
         <Route path="configuracion" element={<DevRoutePage title="Configuración" />} />
         <Route path="" element={<Navigate to="home" replace />} />
       </Route>
