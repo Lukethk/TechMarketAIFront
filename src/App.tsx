@@ -1,5 +1,8 @@
 import { Navigate, Route, Routes, useNavigate } from "react-router-dom";
 import { AppShell } from "./components/AppShell";
+import { CompanyInventory } from "./components/CompanyInventory";
+import { CompanyPerformance } from "./components/CompanyPerformance";
+import { CompanyTickets } from "./components/CompanyTickets";
 import { CommunityHome } from "./components/CommunityHome";
 import { CommunityShell } from "./components/CommunityShell";
 import { AuthLayout } from "./components/AuthLayout";
@@ -46,12 +49,7 @@ function RegisterPage() {
 }
 
 function AppHomePage() {
-  return (
-    <DevNotice
-      title="Inventario"
-      description="Esta pantalla base está lista; el contenido funcional se implementará después."
-    />
-  );
+  return <CompanyInventory />;
 }
 
 function DevRoutePage({ title }: { title: string }) {
@@ -66,12 +64,12 @@ export default function App() {
       <Route path="/register" element={<RegisterPage />} />
       <Route path="/app" element={<AppShell />}>
         <Route path="home" element={<AppHomePage />} />
-        <Route path="tickets" element={<DevRoutePage title="Tickets" />} />
+        <Route path="tickets" element={<CompanyTickets />} />
         <Route path="catalogo" element={<DevRoutePage title="Catálogo" />} />
         <Route path="sucursales" element={<DevRoutePage title="Sucursales" />} />
         <Route path="resenas" element={<DevRoutePage title="Reseñas" />} />
         <Route path="campanas" element={<DevRoutePage title="Campañas" />} />
-        <Route path="rendimiento" element={<DevRoutePage title="Rendimiento" />} />
+        <Route path="rendimiento" element={<CompanyPerformance />} />
         <Route path="facturacion" element={<DevRoutePage title="Facturación" />} />
         <Route path="configuracion" element={<DevRoutePage title="Configuración" />} />
         <Route path="" element={<Navigate to="home" replace />} />
