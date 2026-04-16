@@ -1,7 +1,14 @@
 import { Navigate, Route, Routes, useNavigate } from "react-router-dom";
 import { AppShell } from "./components/AppShell";
+import { CompanyBilling } from "./components/CompanyBilling";
+import { CompanyBranches } from "./components/CompanyBranches";
+import { CompanyCampaigns } from "./components/CompanyCampaigns";
+import { CompanyCatalog } from "./components/CompanyCatalog";
+import { CompanyHome } from "./components/CompanyHome";
 import { CompanyInventory } from "./components/CompanyInventory";
 import { CompanyPerformance } from "./components/CompanyPerformance";
+import { CompanyReviews } from "./components/CompanyReviews";
+import { CompanySettings } from "./components/CompanySettings";
 import { CompanyTickets } from "./components/CompanyTickets";
 import { CommunityHome } from "./components/CommunityHome";
 import { CommunityShell } from "./components/CommunityShell";
@@ -49,7 +56,7 @@ function RegisterPage() {
 }
 
 function AppHomePage() {
-  return <CompanyInventory />;
+  return <CompanyHome />;
 }
 
 function DevRoutePage({ title }: { title: string }) {
@@ -64,14 +71,15 @@ export default function App() {
       <Route path="/register" element={<RegisterPage />} />
       <Route path="/app" element={<AppShell />}>
         <Route path="home" element={<AppHomePage />} />
+        <Route path="inventario" element={<CompanyInventory />} />
         <Route path="tickets" element={<CompanyTickets />} />
-        <Route path="catalogo" element={<DevRoutePage title="Catálogo" />} />
-        <Route path="sucursales" element={<DevRoutePage title="Sucursales" />} />
-        <Route path="resenas" element={<DevRoutePage title="Reseñas" />} />
-        <Route path="campanas" element={<DevRoutePage title="Campañas" />} />
+        <Route path="catalogo" element={<CompanyCatalog />} />
+        <Route path="sucursales" element={<CompanyBranches />} />
+        <Route path="resenas" element={<CompanyReviews />} />
+        <Route path="campanas" element={<CompanyCampaigns />} />
         <Route path="rendimiento" element={<CompanyPerformance />} />
-        <Route path="facturacion" element={<DevRoutePage title="Facturación" />} />
-        <Route path="configuracion" element={<DevRoutePage title="Configuración" />} />
+        <Route path="facturacion" element={<CompanyBilling />} />
+        <Route path="configuracion" element={<CompanySettings />} />
         <Route path="" element={<Navigate to="home" replace />} />
       </Route>
       <Route path="/community" element={<CommunityShell />}>

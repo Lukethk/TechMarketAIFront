@@ -17,10 +17,10 @@ const metrics = [
   },
   {
     label: "Valor Total",
-    value: "$12,400",
+    value: "Bs 86,300",
     helper: "Valor de venta est.",
     tone: "text-slate-400",
-    icon: <span className="text-lg font-semibold">$</span>,
+    icon: <span className="text-sm font-semibold">Bs</span>,
   },
 ];
 
@@ -28,7 +28,7 @@ const products = [
   {
     category: "GPU",
     name: "NV RTX",
-    price: "$799.00",
+    price: "Bs 5,560",
     stock: "12",
     status: "En Stock",
     statusClass: "bg-emerald-100 text-emerald-700",
@@ -37,7 +37,7 @@ const products = [
   {
     category: "CPU",
     name: "Intel 13S",
-    price: "$569.00",
+    price: "Bs 3,960",
     stock: "0",
     status: "Agotado",
     statusClass: "bg-red-100 text-red-600",
@@ -46,7 +46,7 @@ const products = [
   {
     category: "Placa Base",
     name: "ASUS R Z790",
-    price: "$499.99",
+    price: "Bs 3,480",
     stock: "4",
     status: "En Stock",
     statusClass: "bg-emerald-100 text-emerald-700",
@@ -55,7 +55,7 @@ const products = [
   {
     category: "Memoria",
     name: "Corsa RGB 3",
-    price: "$149.99",
+    price: "Bs 1,040",
     stock: "2",
     status: "Poco Stock",
     statusClass: "bg-orange-100 text-orange-600",
@@ -64,7 +64,7 @@ const products = [
   {
     category: "Almacenamiento",
     name: "Samsung 9 1TB NVMe",
-    price: "$89.99",
+    price: "Bs 625",
     stock: "25",
     status: "En Stock",
     statusClass: "bg-emerald-100 text-emerald-700",
@@ -73,7 +73,7 @@ const products = [
   {
     category: "Gabinete",
     name: "NZXT Comp",
-    price: "$94.99",
+    price: "Bs 660",
     stock: "8",
     status: "En Stock",
     statusClass: "bg-emerald-100 text-emerald-700",

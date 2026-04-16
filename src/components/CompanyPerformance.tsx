@@ -1,7 +1,7 @@
 import { ChartIcon, PerformanceIcon, SearchIcon } from "./Icons";
 
 const kpis = [
-  ["Ingresos", "$18,240", "+14.2%", "text-emerald-600"],
+  ["Ingresos", "Bs 126,980", "+14.2%", "text-emerald-600"],
   ["Conversión", "6.8%", "+1.1%", "text-emerald-600"],
   ["Pedidos", "342", "+28", "text-blue-600"],
   ["Devoluciones", "2.4%", "-0.6%", "text-emerald-600"],
@@ -18,10 +18,10 @@ const bars = [
 ];
 
 const products = [
-  ["NVIDIA RTX", "$4,780", "34 ventas"],
-  ["Samsung NVMe", "$2,130", "28 ventas"],
-  ["Intel 13S", "$1,890", "19 ventas"],
-  ["NZXT Comp", "$1,120", "16 ventas"],
+  ["NVIDIA RTX", "Bs 33,270", "34 ventas"],
+  ["Samsung NVMe", "Bs 14,825", "28 ventas"],
+  ["Intel 13S", "Bs 13,150", "19 ventas"],
+  ["NZXT Comp", "Bs 7,795", "16 ventas"],
 ];
 
 export function CompanyPerformance() {

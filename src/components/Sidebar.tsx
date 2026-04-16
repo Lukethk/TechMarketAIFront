@@ -15,13 +15,14 @@ import { NavLink } from "react-router-dom";
 
 const navigation = [
   { label: "Home", icon: <HomeIcon />, to: "/app/home" },
+  { label: "Inventario", icon: <CatalogIcon />, to: "/app/inventario" },
   { label: "Tickets", icon: <TicketIcon />, to: "/app/tickets" },
-  { label: "Catalogo", icon: <CatalogIcon />, to: "/app/catalogo" },
+  { label: "Catálogo", icon: <CatalogIcon />, to: "/app/catalogo" },
   { label: "Sucursales", icon: <StoreIcon />, to: "/app/sucursales" },
-  { label: "Resenas", icon: <ReviewIcon />, to: "/app/resenas" },
+  { label: "Reseñas", icon: <ReviewIcon />, to: "/app/resenas" },
   { label: "Campañas", icon: <CampaignIcon />, to: "/app/campanas" },
   { label: "Rendimiento", icon: <PerformanceIcon />, to: "/app/rendimiento" },
-  { label: "Facturacion", icon: <BillingIcon />, to: "/app/facturacion" },
+  { label: "Facturación", icon: <BillingIcon />, to: "/app/facturacion" },
 ];
 
 type SidebarProps = {
@@ -30,8 +31,8 @@ type SidebarProps = {
 
 export function Sidebar({ onLogout }: SidebarProps) {
   return (
-    <aside className="flex min-h-screen w-full max-w-[276px] flex-col border-r border-slate-200 bg-white shadow-[0_0_0_1px_rgba(15,23,42,0.02)]">
-      <div className="border-b border-slate-100 px-6 py-6">
+    <aside className="sticky top-0 flex h-screen w-full max-w-[276px] shrink-0 flex-col overflow-hidden border-r border-slate-200 bg-white shadow-[0_0_0_1px_rgba(15,23,42,0.02)]">
+      <div className="shrink-0 border-b border-slate-100 px-6 py-6">
         <div className="flex items-center gap-3">
           <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-blue-500 text-white shadow-[0_10px_24px_rgba(37,99,235,0.32)]">
             <ChipIcon />
@@ -42,7 +43,7 @@ export function Sidebar({ onLogout }: SidebarProps) {
           </div>
         </div>
       </div>
-      <div className="flex-1 px-4 py-6">
+      <div className="min-h-0 flex-1 overflow-y-auto px-4 py-6">
         <nav className="space-y-1.5">
           {navigation.map((item) => (
             <NavLink
@@ -67,7 +68,7 @@ export function Sidebar({ onLogout }: SidebarProps) {
           ))}
         </nav>
       </div>
-      <div className="mt-auto border-t border-slate-100 px-4 pb-4 pt-4">
+      <div className="mt-auto shrink-0 border-t border-slate-100 px-4 pb-4 pt-4">
         <NavLink
           to="/app/configuracion"
           className={({ isActive }) =>
